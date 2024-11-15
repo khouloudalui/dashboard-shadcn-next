@@ -26,9 +26,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${
+          process.env.NODE_ENV === "development" ? "debug-screens" : ""
+        } min-h-screen w-full bg-white flex antialiased`}
       >
-        {children}
+        {/* sidebar */}
+        <p className="border">Sidebar</p>
+        {/* main page */}
+
+        <div className="p-8 w-full">{children}</div>
       </body>
     </html>
   );
